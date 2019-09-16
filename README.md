@@ -4,10 +4,10 @@
 * Built with Intersystems Cache ObjectScript. 
 
 ### input()
-Prompts the user to enter an NHS number. Returns "Valid" if valid number
+Prompts the user to enter an NHS number. Returns "Valid" if it's a valid NHS number
 
 ### validate(n)
-Validates a given number n 
+Validates a given number (n) 
 
 ### generator()
 Generates a list of NHS numbers between a specific range. Stores them in global array called ^validNums
