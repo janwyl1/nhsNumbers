@@ -9,11 +9,11 @@ Prompts the user to enter an NHS number. Returns "Valid" if it's a valid NHS num
 ### validate(n)
 Validates a given number (n) 
 
-### generate()
-Generates a list of NHS numbers between a specific range. Stores them in global array called ^validNums
-
 ### random()
-Returns a random NHS number between currently used ranges (4000000000 - 4999999999 and 6000000000 - 7088000001)
+Generates a random valid NHS number, between currently used ranges (4000000000 - 4999999999 and 6000000000 - 7088000001)
+
+### generate()
+Generates a list of valid NHS numbers between a specific range. Stores them as keys in a global array called ^validNums
 
 ### print()
 Retrieves all items from ^validNums global array
