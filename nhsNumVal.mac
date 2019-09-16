@@ -1,10 +1,3 @@
-/// Validate NHS Numbers
-	/*
-		Sources: 
-		https://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp - NHS data dictionary
-		https://github.com/spikeheap/nhs-number-validator - js implementation
-		http://www.danielbayley.uk/nhs-number/ - to generate numbers for testing
-	*/
 /// input() - prompts the user to enter a number
 input
 	read !, "Enter NHS Number: ", nhsNum
@@ -50,7 +43,7 @@ random()
 		I valid=1 W rNhs S validFound = 1		
 	}
 	Q	
-/// printValid() - loop over every node in ^validNums and print key's
+/// printValid() - loop over every node in ^validNums and print key and value
 printValid()
 	 S key = $O(^validNums("")) // Find first node
 	 S numItems = 0 // count the number of items
