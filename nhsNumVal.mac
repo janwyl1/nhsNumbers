@@ -31,11 +31,8 @@ random()
 	while (validFound '= 1) {
 		// start at random number in range 4000000000 to 4999999999 or 6000000000 to 7088000001	
 		S rRng = $R(2)
-		If rRng = 0 { 
-			S rng1 = 4000000000 S rng2 = 4999999999 } 
-		Else { 
-			S rng1 = 6000000000 S rng2 = 7088000001
-		}	
+		I rRng = 0  S rng1 = 4000000000 S rng2 = 4999999999 
+		E  S rng1 = 6000000000 S rng2 = 7088000001	
 		S dif = rng2 - rng1 
 		S rNum = $R(dif)
 		S rNhs = rng2 - rNum
