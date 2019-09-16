@@ -1,0 +1,63 @@
+/// Validate NHS Numbers
+	/*
+		Sources: 
+		https://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp - NHS data dictionary
+		https://github.com/spikeheap/nhs-number-validator - js implementation
+		http://www.danielbayley.uk/nhs-number/ - to generate numbers for testing
+	*/
+/// input() - prompts the user to enter a number
+input
+	read !, "Enter NHS Number: ", nhsNum
+	quit:(nhsNum = "")
+	S valid = $$validate(nhsNum)
+	If valid=1 { W !, "Valid"} Else {  W !,"Invalid" }
+	Q
+/// validate() - checks if a number if valid using mod 11 check. Returns 1 for valid, 0 for invalid
+validate(n)
+	S num=$TR(n," ","")
+	S fac="10,9,8,7,6,5,4,3,2"
+	S chkDig=$E(num,10)
+	S sum=0
+	F i=1:1:9 S mul=$E(num,i)*$P(fac,",",i) S sum=sum+mul
+	S chkSum=11-(sum#11)
+	I chkSum=11  S chkSum=0
+	I chkSum=chkDig  RET 1
+	E  RET 0
+/// generator() - generate valid NHS numbers and store them in a global object (^validNums)
+generator()
+	K ^validNums 
+	F j = 4999900000 : 1 : 4999999999 { // 4990000000 is where it starts getting slow (9,999,999 iterations)
+		S valid = $$validate(j)
+		I valid=1 S ^validNums(j)="Valid"
+		CONTINUE	 
+	}
+	Q
+/// random() - generate a random valid NHS number
+random()
+	S validFound = 0
+	while (validFound '= 1) {
+		// start at random number in range 4000000000 to 4999999999 or 6000000000 to 7088000001	
+		S rRng = $R(2)
+		If rRng = 0 { 
+			S rng1 = 4000000000 S rng2 = 4999999999 } 
+		Else { 
+			S rng1 = 6000000000 S rng2 = 7088000001
+		}	
+		S dif = rng2 - rng1 
+		S rNum = $R(dif)
+		S rNhs = rng2 - rNum
+		S valid = $$validate(rNhs)
+		I valid=1 W rNhs S validFound = 1		
+	}
+	Q	
+/// printValid() - loop over every node in ^validNums and print key's
+printValid()
+	 S key = $O(^validNums("")) // Find first node
+	 S numItems = 0 // count the number of items
+	 While (key '= "") {
+		 S numItems = numItems + 1
+		 W key, !
+	     S key = $O(^validNums(key)) // Find next node
+	 }
+	 W numItems, " valid NHS numbers generated." 
+	 Q
