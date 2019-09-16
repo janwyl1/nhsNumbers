@@ -1,3 +1,3 @@
-### NHS Number validator and Generator
+## NHS Number validator and Generator
 
-## Built with Intersystems Cache ObjectScript
+### Built with Intersystems Cache ObjectScript
