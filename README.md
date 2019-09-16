@@ -1,8 +1,7 @@
 ## NHS Number Validator and Generator
 
-Validates NHS Numbers using the Mod 11 Check Digit.
-
-Built with Intersystems Cache ObjectScript. 
+* Validates NHS Numbers using the Mod 11 Check Digit.
+* Built with Intersystems Cache ObjectScript. 
 
 ### input()
 Prompts the user to enter an NHS number. Returns "Valid" if valid number
