@@ -17,7 +17,7 @@ validate(n)
 	I chkSum=chkDig  RET 1
 	E  RET 0
 /// generator() - generate valid NHS numbers and store them in a global object (^validNums)
-generator()
+generate()
 	K ^validNums 
 	F j = 4999900000 : 1 : 4999999999 { // 4990000000 is where it starts getting slow (9,999,999 iterations)
 		S valid = $$validate(j)
@@ -44,7 +44,7 @@ random()
 	}
 	Q	
 /// printValid() - loop over every node in ^validNums and print key and value
-printValid()
+print()
 	 S key = $O(^validNums("")) // Find first node
 	 S numItems = 0 // count the number of items
 	 While (key '= "") {
