@@ -1,5 +1,5 @@
 /// input() - prompts the user to enter a number
-input
+input()
 	read !, "Enter NHS Number: ", nhsNum
 	quit:(nhsNum = "")
 	S valid = $$validate(nhsNum)
