@@ -1,6 +1,6 @@
-## NHS Number validator and Generator
+## NHS Number Validator and Generator
 
-Built with Intersystems Cache ObjectScript
+Built with Intersystems Cache ObjectScript. Validates NHS Numbers using the Mod 11 Check Digit
 
 ### input()
 Prompts the user to enter an NHS number. Returns "Valid" if valid number
@@ -16,3 +16,9 @@ Returns a random NHS number between currently used ranges (4000000000 - 49999999
 
 ### printValid()
 Retrieves all items from ^validNums global array
+
+#### Thanks to:
+* [NHS Data Dictionary](https://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp)
+* [JS Implementation](https://github.com/spikeheap/nhs-number-validator)
+* [Python Implementation](https://github.com/Iain-S/nhs_number_generator/blob/master/generate_nhs_numbers.py)
+* [NHS Number Validator/Generator](http://danielbayley.uk/nhs-number/)
